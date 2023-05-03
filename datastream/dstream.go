@@ -23,7 +23,7 @@ func produceStream(ds chan *DataStream) {
 			ID:   i,
 			data: fmt.Sprintf("data :%d ", i),
 		}
-		time.Sleep(time.Second)
+		time.Sleep(time.Second*3)
 	}
 }
 func consumeStream(ds chan *DataStream) {
@@ -31,7 +31,7 @@ func consumeStream(ds chan *DataStream) {
 		select {
 		case data := <-ds:
 			fmt.Println("received data ", data)
-		case <-time.After(time.Second * 2):
+		case <-time.After(time.Second * 4):
 			fmt.Println("no data received in last 2 seconds")
 			return
 		}

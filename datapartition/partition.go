@@ -1,0 +1,5 @@
+package datapartition
+
+func Start(){
+	
+}
