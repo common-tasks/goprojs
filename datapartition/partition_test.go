@@ -6,5 +6,5 @@ import
 )
 
 func TestStart(t *testing.T) {
-
+	Start()
 }
