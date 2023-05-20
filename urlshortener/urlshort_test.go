@@ -8,6 +8,10 @@ import (
 	"testing"
 )
 
+func TestShorten(t *testing.T) {
+	Shorten()
+}
+
 func TestShortenURLHandler(t *testing.T) {
 	req, err := http.NewRequest("POST", "/shorten", strings.NewReader(url.Values{"url": []string{"https://facebook.com/"}}.Encode()))
 	if err != nil {
