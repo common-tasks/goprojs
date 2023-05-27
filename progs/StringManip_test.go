@@ -11,5 +11,8 @@ func TestStringProgs(t *testing.T) {
 func TestPalin(t *testing.T) {
 	ispalin := Palin("madam")
 	fmt.Printf("%v\n", ispalin)
-	fmt.Printf("%v\n",Palin("bholab"))
+	fmt.Printf("%v\n", Palin("bholab"))
+}
+func TestAnagram(t *testing.T) {
+	fmt.Println(Anagram("kiska","iskak"))
 }
