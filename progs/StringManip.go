@@ -22,3 +22,18 @@ func revString(s string) string {
 
 	return string(r)
 }
+func Palin(s string) bool {
+	ispal := true
+	run := []rune(s)
+
+	endIndex := len(s) - 1
+
+	for startIndex := 0; startIndex < endIndex; startIndex++ {
+		if run[startIndex] != run[endIndex] {
+			ispal = false
+			break
+		}
+		endIndex--
+	}
+	return ispal
+}
