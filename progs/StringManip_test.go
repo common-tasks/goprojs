@@ -16,3 +16,15 @@ func TestPalin(t *testing.T) {
 func TestAnagram(t *testing.T) {
 	fmt.Println(Anagram("kiska","iskak"))
 }
+func TestCountCharOccurence(t *testing.T) {
+	fmt.Println(CountCharOccurence("hellohallo",'l'))
+	fmt.Println(CountCharOccurence01("hellohallo",'l'))
+}
+func TestFirstNonRepeat(t *testing.T) {
+	res,err:=FirstNonRepeatingChar("aaaa")
+	if(err==nil){
+	fmt.Printf("%v\n",string(res))
+	}else{
+		fmt.Printf("%s",err)
+	}
+}

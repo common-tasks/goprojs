@@ -9,7 +9,12 @@ import (
 )
 
 func TestShorten(t *testing.T) {
-	Shorten()
+	
+	Shorten(":8081")
+	Shorten(":8082")
+	Shorten(":8083")
+	Shorten(":8084")
+
 }
 
 func TestShortenURLHandler(t *testing.T) {

@@ -2,6 +2,7 @@ package progs
 
 import (
 	"fmt"
+	"strings"
 )
 
 func StringProgs() {
@@ -38,7 +39,7 @@ func Palin(s string) bool {
 	return ispal
 }
 func Anagram(word1 string, word2 string) bool {
-    // if lengths are not equal return false
+	// if lengths are not equal return false
 	if len(word1) != len(word2) {
 		return false
 	}
@@ -60,4 +61,34 @@ func Anagram(word1 string, word2 string) bool {
 	}
 
 	return (len(charCount) == 0)
+}
+func CountCharOccurence(word string, ch rune) int {
+	count := 0
+	count = strings.Count(word, string(ch))
+	return count
+}
+func CountCharOccurence01(word string, ch rune) int {
+	count := 0
+	for _, v := range word {
+		if ch == v {
+			count++
+		}
+	}
+	return count
+}
+func FirstNonRepeatingChar(word string) (rune,error) {
+	charray := []rune(word)
+	var firstChar rune = charray[0]
+	for i := 1; i < len(word)-1; i++ {
+		if firstChar != charray[i] {
+			firstChar=charray[i]
+			break
+		} 
+		
+	}
+	if(firstChar==charray[0]){
+		return firstChar,fmt.Errorf("no such character found")
+	}
+	return firstChar,nil
+
 }
