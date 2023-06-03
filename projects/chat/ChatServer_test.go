@@ -1,9 +1,9 @@
 package chat
 
-import
-(
+import (
 	"testing"
 )
-func TestChatServer(t *testing.T) {
 
+func TestChatServer(t *testing.T) {
+	StartServer()
 }
