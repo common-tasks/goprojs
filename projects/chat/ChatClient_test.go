@@ -5,5 +5,5 @@ import (
 )
 
 func TestChatClient(t *testing.T) {
-	Client()
+	ChatClient()
 }

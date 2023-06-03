@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func Client() {
+func ChatClient() {
 	conn, err := net.Dial("tcp", "localhost:8080")
 	if err != nil {
 		fmt.Printf("%s\n", err)

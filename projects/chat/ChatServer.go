@@ -39,7 +39,7 @@ func handleConnection(conn net.Conn) {
 			fmt.Println("closing")
 			return
 		}
-		fmt.Printf("%s %s\n",conn.RemoteAddr(),text)
+		fmt.Printf("%s %s\n", conn.RemoteAddr(), text)
 	}
 
 }
