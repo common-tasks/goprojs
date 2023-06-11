@@ -2,23 +2,26 @@ package main
 
 import (
 	"fmt"
-	"path/filepath"
-	// "projects/urlshortener"
-	"projects/loadbalancer"
+	"unicode"
 )
 
-func main() {
-	fmt.Println("main function")
-	matches, err := filepath.Glob("novell-zenworks-fde-api-23.3.0*x86_64.msi")
-	if(err!=nil){
-		fmt.Println("err",err)
-	}else{
-		fmt.Println(matches)
+func compareStrings(s1, s2 string) bool {
+	// if len(s1) != len(s2) {
+	// 	return false
+	// }
+
+	for i := 0; i < len(s1); i++ {
+		if !unicode.IsDigit(rune(s2[i])) && s1[i] != s2[i] {
+			return false
+		}
 	}
-	if len(matches)>1{
-		fmt.Println("le is >1")
-	}
-	// urlshortener.Shorten()
-	loadbalancer.LoadBalance()
-	fmt.Println("end of main function")
+	return true
 }
+
+func main() {
+	fmt.Println(compareStrings("apple", "a2le"))
+	fmt.Println(compareStrings("apple", "a2l3")) 
+	fmt.Println(compareStrings("apple", "bp2le")) 
+}
+
+
