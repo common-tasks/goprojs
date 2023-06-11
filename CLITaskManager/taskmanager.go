@@ -1,23 +1,14 @@
 package clitaskmanager
 
 import (
-	"bufio"
 	"fmt"
-	"os"
-	clitaskmanager "projects/CLITaskManager"
 	"strings"
 )
 
-func TaskManager() {
+func TaskManager(cmd string) {
 	fmt.Println("cli task manager")
 
-	reader := bufio.NewReader(os.Stdin)
-
-	for {
-		fmt.Print("$>")
-		command, _ := reader.ReadString('\n')
-		handleCommand(strings.TrimSpace(command))
-	}
+	handleCommand(strings.TrimSpace(cmd))
 
 }
 func handleCommand(command string) {
@@ -25,16 +16,16 @@ func handleCommand(command string) {
 	switch parts[0] {
 	case "add":
 		{
-			clitaskmanager.Add(strings.Join(parts[1:], " "))
+			Add(strings.Join(parts[1:], " "))
 		}
 	case "remove":
 		{
-			clitaskmanager.Remove(parts[1])
+			Remove(parts[1])
 		}
 
 	case "list":
 		{
-			clitaskmanager.List()
+			List()
 		}
 	default:
 		fmt.Println("unknown command ,please user add,remove or list commands")

@@ -9,13 +9,17 @@ import (
 const taskFile = "tasks.txt"
 
 func Add(task string) {
-	fs, _ := os.OpenFile(taskFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, os.ModeExclusive)
-	defer fs.Close()
-	_, err := fs.WriteString(task)
-	if err != nil {
-		fmt.Println("error i writing to the file", err)
+	fs, err := os.OpenFile(taskFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, os.ModeExclusive)
+	if fs != nil {
+		defer fs.Close()
+		_, err := fs.WriteString(task)
+		if err != nil {
+			fmt.Println("error i writing to the file", err)
+		} else {
+			fmt.Println("added task ", task)
+		}
 	} else {
-		fmt.Println("added task ", task)
+		fmt.Println("could not open the file for reading",err)
 	}
 
 }
@@ -29,16 +33,16 @@ func Remove(task string) {
 			break
 		}
 	}
-	err:=os.WriteFile(taskFile, []byte(strings.Join(lines, "\n")), 0600)
-	if(err!=nil){
-		fmt.Printf("error in writing to the file %s",err)
+	err := os.WriteFile(taskFile, []byte(strings.Join(lines, "\n")), 0600)
+	if err != nil {
+		fmt.Printf("error in writing to the file %s", err)
 	}
 
 }
-func List(){
-	tasks,err:=os.ReadFile(taskFile)
-	if(err!=nil){
-		fmt.Println("error in reading the file ",err)
+func List() {
+	tasks, err := os.ReadFile(taskFile)
+	if err != nil {
+		fmt.Println("error in reading the file ", err)
 		return
 	}
 	fmt.Println(string(tasks))
