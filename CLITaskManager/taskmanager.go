@@ -2,6 +2,7 @@ package clitaskmanager
 
 import (
 	"fmt"
+	"projects/task"
 	"strings"
 )
 
@@ -16,16 +17,16 @@ func handleCommand(command string) {
 	switch parts[0] {
 	case "add":
 		{
-			Add(strings.Join(parts[1:], " "))
+			task.AddTask(strings.Join(parts[1:], " "))
 		}
 	case "remove":
 		{
-			Remove(parts[1])
+			task.RemoveTask((parts[1]))
 		}
 
 	case "list":
 		{
-			List()
+			task.ListTask()
 		}
 	default:
 		fmt.Println("unknown command ,please user add,remove or list commands")

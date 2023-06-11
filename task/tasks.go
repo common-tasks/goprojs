@@ -1,4 +1,4 @@
-package clitaskmanager
+package task
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 
 const taskFile = "tasks.txt"
 
-func Add(task string) {
+func AddTask(task string) {
 	fs, err := os.OpenFile(taskFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, os.ModeExclusive)
 	if fs != nil {
 		defer fs.Close()
@@ -23,7 +23,7 @@ func Add(task string) {
 	}
 
 }
-func Remove(task string) {
+func RemoveTask(task string) {
 	tasks, _ := os.ReadFile(taskFile)
 	lines := strings.Split(string(tasks), "\n")
 	for i, line := range lines {
@@ -39,7 +39,7 @@ func Remove(task string) {
 	}
 
 }
-func List() {
+func ListTask() {
 	tasks, err := os.ReadFile(taskFile)
 	if err != nil {
 		fmt.Println("error in reading the file ", err)
