@@ -1,0 +1,5 @@
+package webscraper
+
+func Scrapper(){
+	
+}

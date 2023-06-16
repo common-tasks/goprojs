@@ -19,7 +19,7 @@ func AddTask(task string) {
 			fmt.Println("added task ", task)
 		}
 	} else {
-		fmt.Println("could not open the file for reading",err)
+		fmt.Println("could not open the file for reading", err)
 	}
 
 }
