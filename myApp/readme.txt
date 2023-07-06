@@ -1,5 +1,5 @@
 # Use the official Golang image from the Docker Hub
-FROM golang
+FROM golang:1.17
 
 # Set the Current Working Directory inside the container
 WORKDIR /app
@@ -16,8 +16,8 @@ COPY . .
 # Build the application
 RUN go build -o main .
 
-# Expose port 5000 to the outside
-EXPOSE 5000
+# Expose port 8080 to the outside
+EXPOSE 8080
 
 # Command to run the executable
 CMD ["./main"]
@@ -26,4 +26,4 @@ CMD ["./main"]
 docker build -t myapp .
 
 
-docker run -p 5000:5000 myapp
+docker run -p 8080:8080 myapp
