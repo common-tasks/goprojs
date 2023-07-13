@@ -1,0 +1,6 @@
+{
+    "DBUserName":"postgres",
+    "DBPassword":"novell@123",
+    "DBPort":"5432",
+    "DBName":"AzureUser"
+}
